@@ -42,12 +42,12 @@ print(alphabet)
 
 # Множество Set
 
-my_str = 'jshdbajhskskahbcjanscbcmn`zcabnx`'
+example_string = 'jshdbajhskskahbcjanscbcmn`zcabnx`'
 
-my_list = list(my_str)
+my_list = list(example_string)
 print(my_list)
 
-my_random = ''.join(list(set(my_str))[:5])
+my_random = ''.join(list(set(example_string))[:5])
 print(my_random)
 
 my_list = ["3", "6", "2", 8, 1, 9]
@@ -90,7 +90,7 @@ print(person["function"]('qwerty'))  # todo ????
 my_dict = {1: "1" * 10,
            2: "2" * 10,
            0: "0" * 10}
-print(my_dict[1])
+print(my_dict[1], example_string)
 
 value = 122
 
