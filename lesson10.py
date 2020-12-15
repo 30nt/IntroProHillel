@@ -15,7 +15,7 @@ def generate_string(min_limit=100, max_limit=1000) -> str:
     return ''.join(res_list)
 
 
-def transformation_with_spaces(str_to_transform):
+def transformation_with_spaces(str_to_transform: str) -> str:
     count_spaces = len(str_to_transform) // 5
     spaces_indexes = []
     while len(spaces_indexes) < count_spaces:
@@ -27,11 +27,11 @@ def transformation_with_spaces(str_to_transform):
     return str_to_transform
 
 
-def change_first_symbol(word):
+def change_first_symbol(word: str) -> str:
     return word.capitalize()
 
 
-def change_last_symbol(word):
+def change_last_symbol(word: str) -> str:
     puntcuations = ",.!?"
     word = word[:-1] + random.choice(puntcuations) if len(word) > 3 else word
     return word
@@ -73,57 +73,58 @@ def transform_by_words(str_to_transform):
     return " ".join(new_words)
 
 
-result = generate_string()
-result = transformation_with_spaces(result)
-result = transform_by_words(result)
-print(result)
+# print(__name__)
 
-# Функции сортировки!
+if __name__ == "__main__":
+    result = generate_string()
+    result = transformation_with_spaces(result)
+    result = transform_by_words(result)
+    print(result)
 
-my_list = [2, 4, 1, 5, -3]
-new_list = sorted(my_list, key=abs)
-print(new_list)
+    # Функции сортировки!
 
-my_list_2 = ["qwe", "as", "123zzz"]
-new_list_2 = sorted(my_list_2, key=len)
-print(new_list_2)
+    my_list = [2, 4, 1, 5, -3]
+    new_list = sorted(my_list, key=abs)
+    print(new_list)
 
-my_list_3 = [{"name": "Joh", "age": 25},
-             {"name": "Jucz", "age": 15},
-             {"name": "Jack", "age": 45}]
+    my_list_2 = ["qwe", "as", "123zzz"]
+    new_list_2 = sorted(my_list_2, key=len)
+    print(new_list_2)
 
-
-def sort_by_age(person):
-    age = person["age"]
-    return age
+    my_list_3 = [{"name": "Joh", "age": 25},
+                 {"name": "Jucz", "age": 15},
+                 {"name": "Jack", "age": 45}]
 
 
-def sort_by_name_alphabet(person):
-    name = person["name"]
-    return name
+    def sort_by_age(person):
+        age = person["age"]
+        return age
 
 
-def sort_by_name_len(person):
-    name = person["name"]
-    return len(name), name
+    def sort_by_name_alphabet(person):
+        name = person["name"]
+        return name
 
 
-new_list_3 = sorted(my_list_3, key=sort_by_name_len)
-print(new_list_3)
-
-# Регулярные выражения!
-import re
-
-my_str = "Server response 2003 from 123.0.0.12, Wrong 123-0-0-12"
-
-pattern = r"[0-9]+" # все числа из строки
-# pattern = r"\d+"
-pattern = r"[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"  # символ . это один любой символ
-
-my_str = "Kolobok 235-234 BC"
-pattern = r"\d+"
-
-result = re.findall(pattern, my_str)
-print(result)
+    def sort_by_name_len(person):
+        name = person["name"]
+        return len(name), name
 
 
+    new_list_3 = sorted(my_list_3, key=sort_by_name_len)
+    print(new_list_3)
+
+    # Регулярные выражения!
+    import re
+
+    my_str = "Server response 2003 from 123.0.0.12, Wrong 123-0-0-12"
+
+    pattern = r"[0-9]+"  # все числа из строки
+    # pattern = r"\d+"
+    pattern = r"[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"  # символ . это один любой символ
+
+    my_str = "Kolobok 235-234 BC"
+    pattern = r"\d+"
+
+    result = re.findall(pattern, my_str)
+    print(result)
