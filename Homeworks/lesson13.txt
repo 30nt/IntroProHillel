@@ -1,0 +1,24 @@
+Основа ДЗ - ДЗ №8 https://github.com/30nt/IntroProHillel/blob/main/Homeworks/lesson8.txt
+
+Суть задания - сздать класс EmailGenerator
+
+1. При инициализации класса передавать два параметра - путь к файлу domains.txt и путь к файлу names.txt
+Пример:
+email_generator = EmailGenerator("domains.txt", "names.txt")
+
+2. Атрибуты экземпляра класса: domains и names.
+Получаются с помощью методов get_domains() и get_names(). (описание и реализацию нужно взять из ДЗ №8)
+Пример:
+self.domains = get_domains()
+self.names = get_names()
+
+3. При выводе на печать экземпляра класса вывести количество элементов в атрибутах domains и names
+Пример:
+print(email_generator)
+>>>len domains = 8, len names = 34
+
+4. Написать метод экземпляра класса generate_email() (описание и реализацию нужно взять из ДЗ №8)
+Пример:
+email = email_generator.generate_email()
+print(email)
+>>>miller.249@sgdyyur.com
