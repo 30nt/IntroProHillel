@@ -5,26 +5,28 @@ import string
 
 
 class DemoFiles:
-    def __init__(self, path_dir):
-        self.path_dir = path_dir
-        self.create_dir()
+    count = 0
 
-    def create_dir(self):
+    def __init__(self, path_dir):
+        self._path_dir = path_dir
+        self._create_dir()
+
+    def _create_dir(self):
         try:
-            os.mkdir(self.path_dir)
+            os.mkdir(self._path_dir)
         except FileExistsError:
             pass
 
     def create_files(self):
         for symbol in string.ascii_lowercase:
-            with open(os.path.join(self.path_dir, f"{symbol}.txt"), 'w') as file:
+            with open(os.path.join(self._path_dir, f"{symbol}.txt"), 'w') as file:
                 file.write(string.ascii_lowercase.replace(symbol, symbol.upper()))
 
     def tanos_click(self):
-        tanos_list = os.listdir(self.path_dir)
+        tanos_list = os.listdir(self._path_dir)
         tanos_list = list(set(tanos_list))
         for filename in tanos_list[: len(tanos_list) // 2]:
-            os.remove(os.path.join(self.path_dir, filename))
+            os.remove(os.path.join(self._path_dir, filename))
 
 
 path_dir = "alphabet"
